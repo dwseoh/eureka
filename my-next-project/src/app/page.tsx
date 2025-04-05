@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef} from "react"
 import { Button } from "@/components/ui/button"
-import { Bell, BellOff, Clock, Focus, Leaf, PauseCircle, Volume2, VolumeX } from "lucide-react"
+import { Clock, Focus, Leaf, PauseCircle, Volume2, VolumeX } from "lucide-react"
 import NatureClock from "@/components/nature-clock"
 import MossGrowth from "@/components/moss-growth"
 import NatureBackground from "@/components/nature-background"
@@ -10,12 +10,10 @@ import SoundControls from "@/components/sound-controls"
 
 export default function Home() {
   const [focusMode, setFocusMode] = useState(false)
-  const [showNotifications, setShowNotifications] = useState(false)
   const [soundsPlaying, setSoundsPlaying] = useState(false)
   const [location, setLocation] = useState<{ lat: number; lon: number } | null>(null)
   const mainRef = useRef<HTMLElement>(null)
   const [mossGrowth, setMossGrowth] = useState(0) // 0-100 percentage
-  const [weather, setWeather] = useState({ temperature: 20, description: "Clear sky" }) // Default weather
 
   // Check if API key is set
   useEffect(() => {
