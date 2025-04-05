@@ -114,7 +114,10 @@ export default function NatureBackground({ focusMode, location }: NatureBackgrou
   }, [location])
 
   useEffect(() => {
-    const canvas = canvasRef.current
+    if (!canvasRef.current) return // Guard to ensure canvas is ready
+
+    const canvas = canvasRef.current!
+    
     if (!canvas) return
 
     const ctx = canvas?.getContext("2d")
